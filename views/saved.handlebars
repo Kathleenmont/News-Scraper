@@ -1,4 +1,4 @@
-<h1>Album Review Scraper</h1>
+<h1>Saved Album Reviews</h1>
 <div id="container-cards">
 
     {{#each articles}}
@@ -8,13 +8,13 @@
             <div class="card-header">
                 <h2><span class="label card-text"><b>Album: </b></span> {{this.title}}</h2>
                 <h3><span class="label card-text"><b>Artist: </b></span> {{this.artist}}</h3>
-    </a>
-    <span><button class="save-button btn btn-info" data-id="{{id}}">Save</button></span>
-</div>
-<div class="card-body">
-    <p><span class="label card-text"></span> {{this.summary}}</p>
-</div>
-
+            </div>
+            </a>
+            <div class="card-body">
+                <p><span class="label card-text"></span> {{this.summary}}</p>
+                 <span><button class="notes-button btn btn-info" data-id="{{id}}">Notes</button></span>
+            </div>
+    
 </div>
 {{/each}}
 </div>

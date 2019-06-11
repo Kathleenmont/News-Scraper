@@ -10,9 +10,24 @@ const ArticleSchema = new Schema({
         type: String,
         required: true
     },
+    artist: {
+        type: String,
+        required: true,
+        unique: true
+    },
     link: {
         type: String,
-        required: true
+        required: true,
+        unique: true
+    },
+    summary: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    saved: {
+        type: Boolean,
+        default: false
     },
     note: {
         type: Schema.Types.ObjectId,
