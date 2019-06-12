@@ -1,4 +1,21 @@
-<h1>Saved Album Reviews</h1>
+<!-- A grey horizontal navbar that becomes vertical on small screens -->
+<nav class="navbar navbar-expand-sm bg-dark">
+
+    <ul class="navbar-nav">
+    <li class="nav-item">
+     <button><a class="nav-link scrape" href="#">Scrape Articles</a></button> 
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/saved">Saved Articles</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+  </ul>
+
+</nav>
+
+<div class="jumbotron"><h1>Saved Album Reviews</h1></div>
 <div id="container-cards">
 
     {{#each articles}}
@@ -9,17 +26,48 @@
                 <h2><span class="label card-text"><b>Album: </b></span> {{this.title}}</h2>
                 <h3><span class="label card-text"><b>Artist: </b></span> {{this.artist}}</h3>
             </div>
-            </a>
-            <div class="card-body">
-                <p><span class="label card-text"></span> {{this.summary}}</p>
-                 <span><button class="notes-button btn btn-info" data-id="{{id}}">Notes</button></span>
+    </a>
+    <div class="card-body">
+        <p><span class="label card-text"></span> {{this.summary}}</p>
+        <!-- Button trigger modal -->
+        <span><button type="button" class="btn btn-info notes-button" data-toggle="modal" data-id="{{this.id}}" data-target="#exampleModal">
+            Notes
+        </button></span>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Notes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
     
+            </div><hr></hr>
+                <form>
+                <textarea data-id="{{this.id}}" class="note-text">    {{#each ../notes}}{{../this.title}}{{/each}}</textarea>
+                </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" data-id="{{this.id}}" class="btn btn-primary save-note">Save Notes</button>
+            </div>
+        </div>
+    </div>
 </div>
 {{/each}}
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
 <script src="/app.js"></script>
