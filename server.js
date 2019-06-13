@@ -48,11 +48,7 @@ app.get("/scrape", function(req, res) {
     $("div.album-details").each(function(i, element) {
       const result = {};
       console.log("result " + result);
-      // result.title = $(this)
-      // .children("h2")
-      // .text();
-      // result.link = $(this).children("a")
-      // .attr("href");      result.link = $(element).find("a").attr("href");
+  
       result.link = $(element)
         .find("a")
         .attr("href");
@@ -110,18 +106,6 @@ app.get("/api/saved", function(req, res) {
       });
   });
 
-//   app.get("/api/notes", function(req, res) {
-//     // grab every doc in the Articles collection
-//     db.Note.find({})
-//       .then(function(dbNotes) {
-//         // if find articles send them back to the client
-//         res.json(dbNotes);
-//       })
-//       .catch(function(err) {
-//         // iff err send to the client
-//         res.json(err);
-//       });
-//   });
 
 app.get("/", function(req, res) {
   db.Article.find({}).then(function(dbArticle) {
@@ -173,32 +157,6 @@ app.put("/api/saved/:id", function(req, res) {
   );
 });
 
-
-// // put route for saving a note
-// app.put("/api/notes/:id", function(req, res) {
-//     db.Note.create(
-//       {
-//         _id: req.params.id
-//       },
-//       {
-//         $set: {
-//           title: req.body.title,
-//           body: req.body.body
-//         }
-//       },
-//       function(error, edited) {
-//         // show any errors
-//         if (error) {
-//           console.log(error);
-//           res.send(error);
-//         } else {
-//           // Otherwise, send the result of our update to the browser
-//           console.log(edited);
-//           res.send(edited);
-//         }
-//       }
-//     );
-//   });
 
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function(req, res) {
