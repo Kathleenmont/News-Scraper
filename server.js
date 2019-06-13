@@ -77,8 +77,8 @@ app.get("/scrape", function(req, res) {
         });
     });
     // send message to client
-    res.send("scrape complete");
-    res.render("/")
+    // res.send("scrape complete");
+    res.redirect("/");
   });
 });
 

@@ -48,11 +48,15 @@ $(document).on("click", ".notes-button", function() {
   // Empty the notes from the note section
   $(".modal-title").text("");
   $(".modal-body").text("");
+  var thisId = $(this).attr("data-id");
+  $("#modal-text").attr("data-id", thisId);
+  $(".save-note").attr("data-id", thisId);
+
   jQuery.noConflict();
   $("#exampleModal").modal("show");
   // $(".note-text").empty();
   // Save the id from the p tag
-  var thisId = $(this).attr("data-id");
+  
   console.log(thisId);
   // Now make an ajax call for the Article
   $.ajax({
