@@ -8,7 +8,7 @@ const exphbs = require("express-handlebars");
 // require models
 const db = require("./models");
 
-const PORT = 3002;
+const PORT = 8080;
 
 // express
 const app = express();
